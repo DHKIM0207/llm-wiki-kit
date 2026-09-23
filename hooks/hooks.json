@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh\"",
+            "shell": "bash",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"압축 전 — 위키에 남길 작업이 있는지 확인하세요.\", \"hookSpecificOutput\": {\"hookEventName\": \"PreCompact\", \"additionalContext\": \"컨텍스트가 압축됩니다. 지금까지의 작업 중 위키에 남길 가치가 있는 것(되풀이될 문제 해결, 환경 특성 발견, 설계 결정, 긴 삽질)이 있으면 사용자에게 wiki-log 기록을 제안하세요. 없으면 아무 말도 하지 마세요.\"}}'",
+            "shell": "bash",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

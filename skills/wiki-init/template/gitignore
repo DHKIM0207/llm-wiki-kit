@@ -1,0 +1,18 @@
+# Obsidian — 기기별 상태라 동기화 대상 아님
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# 원본 자료 — 불변 계층. 사내·고객사 문서 원본이 외부로 나가지 않도록 제외한다.
+# 바이너리(hwp/xlsx/pptx)로 저장소가 부푸는 것도 함께 막는다.
+# 주의: raw/ 는 git 백업을 받지 않으므로 별도 백업이 필요하다.
+raw/
+
+# 에이전트 로컬 설정
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
