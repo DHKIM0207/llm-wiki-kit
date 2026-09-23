@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>LLM 위키 플러그인 설치 안내</title>
+<style>
+  @page { size: A4; margin: 14mm 16mm 12mm; }
+  :root { --ink:#1d2330; --mute:#5b6475; --line:#e3e6ec; --accent:#2f5bd3; --soft:#f4f6fa; }
+  * { box-sizing: border-box; }
+  body { font-family: "Malgun Gothic", sans-serif; color: var(--ink); font-size: 9.8pt; line-height: 1.5; margin: 0; }
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 10px; }
+  h1 { font-size: 19pt; margin: 0 0 4px; letter-spacing: -0.3px; }
+  .sub { color: var(--mute); margin: 0; }
+  h2 { font-size: 11.5pt; margin: 12px 0 5px; display: flex; align-items: center; gap: 8px; }
+  h2 .n { background: var(--ink); color: #fff; border-radius: 50%; width: 20px; height: 20px; font-size: 9pt;
+          display: inline-flex; align-items: center; justify-content: center; }
+  ul, ol { margin: 4px 0; padding-left: 20px; }
+  li { margin: 2px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; }
+  th, td { text-align: left; padding: 4px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--soft); font-weight: 700; font-size: 9.4pt; }
+  td:first-child { white-space: nowrap; font-weight: 700; }
+  .tag { font-size: 8.4pt; padding: 1px 7px; border-radius: 9px; font-weight: 700; white-space: nowrap; }
+  .req { background: #e6ecfb; color: var(--accent); }
+  .opt { background: #eef0f3; color: var(--mute); }
+  pre { background: #1d2330; color: #e8ecf5; padding: 8px 13px; border-radius: 6px; font-family: Consolas, monospace;
+        font-size: 9.6pt; margin: 6px 0; line-height: 1.55; }
+  code { font-family: Consolas, monospace; background: var(--soft); padding: 0 4px; border-radius: 3px; font-size: 9.4pt; }
+  pre code { background: none; padding: 0; }
+  .note { background: var(--soft); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 6px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 6px 11px; }
+  .card b { display: block; margin-bottom: 2px; }
+  .card span { color: var(--mute); font-size: 9.4pt; }
+  footer { margin-top: 10px; padding-top: 6px; border-top: 1px solid var(--line); color: var(--mute); font-size: 9pt; }
+  .keep { break-inside: avoid; }
+</style>
+</head>
+<body>
+<header>
+  <h1>LLM 위키 플러그인 설치 안내</h1>
+  <p class="sub">Claude Code로 작업하면 Claude가 알아서 정리해 쌓아가는 개인 지식 위키</p>
+</header>
+
+<ul>
+  <li>작업이 끝나면 <b>"위키에 남길까요?"</b>라고 먼저 묻고, 승인하면 기록합니다.</li>
+  <li>비슷한 작업을 시작할 때 <b>예전 기록을 먼저 찾아봅니다.</b></li>
+  <li>문서·자료를 넣으면 요약하고 서로 연결해 둡니다.</li>
+</ul>
+
+<section class="keep">
+<h2><span class="n">1</span>준비물</h2>
+<table>
+  <tr><th style="width:30%">항목</th><th style="width:12%">구분</th><th>설명</th></tr>
+  <tr><td>Claude Code</td><td><span class="tag req">필수</span></td><td>Pro 이상 요금제 또는 API 키</td></tr>
+  <tr><td>Git</td><td><span class="tag req">필수</span></td><td>Windows는 Git for Windows. Claude Code를 쓰고 있다면 이미 설치돼 있습니다.</td></tr>
+  <tr><td>GitHub 접근 권한</td><td><span class="tag req">필수</span></td><td><code>uiai-lab/llm-wiki-kit</code> 비공개 저장소 읽기 권한 + GitHub 로그인. 권한이 없으면 요청해 주세요.</td></tr>
+  <tr><td>Obsidian</td><td><span class="tag opt">선택</span></td><td>위키를 그래프·링크로 편하게 보고 싶을 때</td></tr>
+</table>
+</section>
+
+<section class="keep">
+<h2><span class="n">2</span>설치 — Claude Code 대화창에서</h2>
+<pre><code>/plugin marketplace add uiai-lab/llm-wiki-kit
+/plugin install llm-wiki@llm-wiki-kit</code></pre>
+</section>
+
+<section class="keep">
+<h2><span class="n">3</span>처음 설정</h2>
+<ol>
+  <li>새 세션을 열고 <code>LLM 위키 만들어줘</code> 라고 입력합니다.</li>
+  <li>볼트 위치(예: <code>C:\Users\&lt;이름&gt;\Documents\my-wiki</code>), 이름, 도메인을 물어보면 답합니다. 폴더 구조를 만들어 줍니다.</li>
+  <li><b>새 세션부터</b> 자동 참조·기록 제안이 적용됩니다.</li>
+  <li>Obsidian이 있다면 그 폴더를 <b>"폴더를 보관소로 열기"</b>로 엽니다.</li>
+</ol>
+</section>
+
+<section class="keep">
+<h2><span class="n">4</span>이렇게 쓰세요</h2>
+<div class="grid">
+  <div class="card"><b>자료 넣기</b><span>볼트의 <code>raw/</code>에 문서를 넣고 → "이거 위키에 넣어줘"</span></div>
+  <div class="card"><b>질문</b><span>"예전에 ○○ 어떻게 했었지?", "○○ 관련 정리해줘"</span></div>
+  <div class="card"><b>점검</b><span>"위키 점검해줘" — 모순·끊긴 링크·다음에 조사할 것 제안</span></div>
+  <div class="card"><b>작업 기록</b><span>끝나면 Claude가 먼저 물어봅니다. 직접 "위키에 기록해줘"도 가능</span></div>
+</div>
+</section>
+
+
+<div class="note keep">
+  <b>참고</b>
+  <ul>
+    <li><b>업데이트</b>: 대화창에서 <code>/plugin marketplace update llm-wiki-kit</code></li>
+    <li>위키는 각자 PC에만 있는 <b>개인 위키</b>입니다. 백업이 필요하면 볼트 폴더를 본인 GitHub 비공개 저장소에 연결하세요.</li>
+    <li><code>raw/</code>에 넣은 원본은 git에 올라가지 않으니 따로 백업하세요.</li>
+  </ul>
+</div>
+
+<footer>자세한 내용: https://github.com/uiai-lab/llm-wiki-kit</footer>
+</body>
+</html>

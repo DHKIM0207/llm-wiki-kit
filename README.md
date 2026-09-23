@@ -39,6 +39,8 @@ AI 코딩 에이전트(Claude Code, Codex)가 Obsidian 볼트를 **직접 쓰고
 
 ## 설치 (Claude Code)
 
+> 동료에게 보낼 한 장짜리 안내: [docs/설치안내.pdf](docs/설치안내.pdf) (원본 `docs/설치안내.html` — 고친 뒤 Edge/Chrome에서 PDF로 인쇄)
+
 저장소를 받은 뒤(또는 git URL로 바로), Claude Code 대화창에서:
 
 ```
