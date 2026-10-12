@@ -64,10 +64,22 @@ LLM 위키 만들어줘
 
 ### Codex
 
-`.codex-plugin/plugin.json`이 같은 `skills/`를 가리킨다. 훅은 Codex에서 돌지 않을 수 있으므로
-`hooks/wiki-rules.md`를 경로만 바꿔 `~/.codex/AGENTS.md`에 붙인다(`wiki-init`이 물어본다).
+Codex CLI(0.162 기준)는 Claude Code 마켓플레이스 형식을 그대로 읽는다. 터미널에서:
+
+```bash
+codex plugin marketplace add DHKIM0207/llm-wiki-kit
+codex plugin add llm-wiki@llm-wiki-kit
+codex plugin list        # llm-wiki@llm-wiki-kit  installed, enabled 확인
+```
+
+새 Codex 세션에서 `LLM 위키 만들어줘` → `wiki-init`. 스킬은 `llm-wiki:wiki-query` 식 이름으로 잡힌다.
+
+플러그인 훅(먼저 참조·먼저 제안 규칙 주입)이 Codex에서 도는지는 아직 검증하지 않았다.
+그래서 `wiki-init`이 Codex 사용자에게 `hooks/wiki-rules.md`(볼트 경로 치환)를 `~/.codex/AGENTS.md`에
+붙일지 묻는다 — 붙이면 훅 없이도 규칙이 적용된다.
 볼트 스키마가 `AGENTS.md`이고 `CLAUDE.md`는 이를 `@AGENTS.md`로 import만 하므로 두 에이전트가 같은 규칙을 읽는다.
-(Codex 쪽 플러그인 설치는 아직 검증하지 않았다.)
+
+업데이트: `codex plugin marketplace upgrade llm-wiki-kit` 후 `codex plugin add llm-wiki@llm-wiki-kit`.
 
 ## 설정은 파일 한 줄
 

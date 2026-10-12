@@ -24,7 +24,7 @@
   .req { background: #e6ecfb; color: var(--accent); }
   .opt { background: #eef0f3; color: var(--mute); }
   pre { background: #1d2330; color: #e8ecf5; padding: 8px 13px; border-radius: 6px; font-family: Consolas, monospace;
-        font-size: 9.6pt; margin: 6px 0; line-height: 1.55; }
+        font-size: 8.6pt; margin: 4px 0; line-height: 1.55; }
   code { font-family: Consolas, monospace; background: var(--soft); padding: 0 4px; border-radius: 3px; font-size: 9.4pt; }
   pre code { background: none; padding: 0; }
   .note { background: var(--soft); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 6px; }
@@ -39,7 +39,7 @@
 <body>
 <header>
   <h1>LLM 위키 플러그인 설치 안내</h1>
-  <p class="sub">Claude Code로 작업하면 Claude가 알아서 정리해 쌓아가는 개인 지식 위키</p>
+  <p class="sub">Claude Code·Codex로 작업하면 Claude가 알아서 정리해 쌓아가는 개인 지식 위키</p>
 </header>
 
 <ul>
@@ -52,16 +52,20 @@
 <h2><span class="n">1</span>준비물</h2>
 <table>
   <tr><th style="width:30%">항목</th><th style="width:12%">구분</th><th>설명</th></tr>
-  <tr><td>Claude Code</td><td><span class="tag req">필수</span></td><td>Pro 이상 요금제 또는 API 키</td></tr>
-  <tr><td>Git</td><td><span class="tag req">필수</span></td><td>Windows는 Git for Windows. Claude Code를 쓰고 있다면 이미 설치돼 있습니다.</td></tr>
+  <tr><td>Claude Code 또는 Codex</td><td><span class="tag req">필수</span></td><td>Claude Code: Pro 이상 요금제 또는 API 키 / Codex: Codex CLI</td></tr>
+  <tr><td>Git</td><td><span class="tag req">필수</span></td><td>Windows는 Git for Windows (Claude Code 사용자는 이미 설치됨)</td></tr>
     <tr><td>Obsidian</td><td><span class="tag opt">선택</span></td><td>위키를 그래프·링크로 편하게 보고 싶을 때</td></tr>
 </table>
 </section>
 
 <section class="keep">
-<h2><span class="n">2</span>설치 — Claude Code 대화창에서</h2>
+<h2><span class="n">2</span>설치</h2>
+<div class="grid"><div><b>Claude Code</b> — 대화창에서
 <pre><code>/plugin marketplace add DHKIM0207/llm-wiki-kit
 /plugin install llm-wiki@llm-wiki-kit</code></pre>
+</div><div><b>Codex</b> — 터미널에서
+<pre><code>codex plugin marketplace add DHKIM0207/llm-wiki-kit
+codex plugin add llm-wiki@llm-wiki-kit</code></pre></div></div>
 </section>
 
 <section class="keep">
@@ -69,7 +73,7 @@
 <ol>
   <li>새 세션을 열고 <code>LLM 위키 만들어줘</code> 라고 입력합니다.</li>
   <li>볼트 위치(예: <code>C:\Users\&lt;이름&gt;\Documents\my-wiki</code>), 이름, 도메인을 물어보면 답합니다. 폴더 구조를 만들어 줍니다.</li>
-  <li><b>새 세션부터</b> 자동 참조·기록 제안이 적용됩니다.</li>
+  <li><b>새 세션부터</b> 자동 참조·기록 제안이 적용됩니다. Codex는 <code>~/.codex/AGENTS.md</code>에 규칙을 붙일지 물어보면 승인하세요.</li>
   <li>Obsidian이 있다면 그 폴더를 <b>"폴더를 보관소로 열기"</b>로 엽니다.</li>
 </ol>
 </section>
@@ -88,7 +92,7 @@
 <div class="note keep">
   <b>참고</b>
   <ul>
-    <li><b>업데이트</b>: 대화창에서 <code>/plugin marketplace update llm-wiki-kit</code></li>
+    <li><b>업데이트</b>: Claude Code는 <code>/plugin marketplace update llm-wiki-kit</code>, Codex는 <code>codex plugin marketplace upgrade llm-wiki-kit</code></li>
     <li>위키는 각자 PC에만 있는 <b>개인 위키</b>입니다. 백업이 필요하면 볼트 폴더를 본인 GitHub 비공개 저장소에 연결하세요.</li>
     <li><code>raw/</code>에 넣은 원본은 git에 올라가지 않으니 따로 백업하세요.</li>
   </ul>
