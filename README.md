@@ -3,6 +3,12 @@
 AI 코딩 에이전트(Claude Code, Codex)가 Obsidian 볼트를 **직접 쓰고 관리하는** 개인 지식 위키용 플러그인.
 공개된 "LLM Wiki" 패턴 아이디어 문서를 실제 업무에 몇 달 써보며 다듬은 절차다.
 
+<p align="center">
+  <a href="docs/media/llm-wiki-intro.mp4"><img src="docs/media/llm-wiki-intro-loop.gif" width="420" alt="LLM 위키 동작 — 작업 전 위키를 먼저 찾아보고, 끝나면 기록을 제안한다"></a>
+  <br>
+  <a href="docs/media/llm-wiki-intro.mp4">▶ 45초 소개 영상 보기 (MP4, 한국어 자막)</a>
+</p>
+
 ## 왜 RAG가 아니라 위키인가
 
 파일을 올려두고 질문할 때마다 검색하는 방식(RAG)은 매번 지식을 처음부터 다시 짜맞춘다. 쌓이는 게 없다.
