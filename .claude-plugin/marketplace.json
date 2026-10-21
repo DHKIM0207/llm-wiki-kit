@@ -8,7 +8,7 @@
     {
       "name": "llm-wiki",
       "description": "LLM이 관리하는 Obsidian 지식 위키: 볼트 생성, 자료 수집(ingest), 질의(query), 점검(lint), 작업 기록(log)",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "source": "./",
       "author": {
         "name": "DHKIM0207"

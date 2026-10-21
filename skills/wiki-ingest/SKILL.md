@@ -72,6 +72,10 @@ description: Use when new material needs to enter the LLM wiki — a document, a
 숨기거나 새 정보로 조용히 덮어쓰지 않는다. 어느 쪽이 맞는지 모를 때는
 모른다고 쓴다.
 
+단, 새 자료가 **나중에 내려진 결정·변경을 명시적으로 기록**한 것이라면(예: "8월에 쓰던 A를 10월에 B로 교체")
+모순이 아니라 뒤집힘이다. `contested` 대신 옛 페이지에 `superseded_by`와 경고를 단다
+(`<VAULT>/AGENTS.md`의 "뒤집힌 결정").
+
 ### 6. index.md · log.md 갱신
 
 `wiki/index.md` — 새로 만든 페이지를 해당 범주에 추가
