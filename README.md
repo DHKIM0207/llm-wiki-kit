@@ -63,6 +63,23 @@ LLM 위키 만들어줘
 → `wiki-init`이 볼트 위치·이름·도메인을 묻고, 뼈대를 깔고, 경로를 `~/.claude/llm-wiki/vault-path`에
 등록한다. **다음 세션부터**(또는 `/clear` 후) 훅이 규칙을 넣기 시작한다.
 
+### 업데이트 (Claude Code)
+
+이 저장소 같은 서드파티 마켓플레이스는 **자동 업데이트가 기본으로 꺼져 있다.** 새 버전이 나와도 저절로 받지 않는다.
+
+- **자동 업데이트 켜기 (권장)**: `/plugin` → Marketplaces → `llm-wiki-kit` → **Enable auto-update**.
+  켜 두면 세션 중 새 버전을 받아 두고 다음 실행부터 적용된다(바로 쓰려면 `/reload-plugins`).
+- **수동 업데이트**: 터미널에서 두 줄. 첫 줄만으로는 목록만 새로고침되고 설치본은 그대로다.
+
+  ```bash
+  claude plugin marketplace update llm-wiki-kit
+  claude plugin update llm-wiki@llm-wiki-kit
+  ```
+
+  대화창에서는 `/plugin`의 Installed 탭에서 `llm-wiki`를 골라 업데이트해도 된다. 적용은 재시작(또는 `/reload-plugins`) 후.
+
+버전은 `plugin.json`의 `version`으로 판단한다. 만드는 쪽은 버전을 올려야 사용자에게 업데이트가 간다.
+
 ### 플러그인 없이 수동 설치
 
 `skills/` 아래 다섯 폴더를 `~/.claude/skills/`에 복사하고, 훅 대신 `hooks/wiki-rules.md`의
